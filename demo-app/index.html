@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/client.js"></script>
+    <style>
+    .has-error {
+      color: red;
+      background-color: yellow;
+    }
+    </style>
+  </head>
+  <body ng-app="demo">
+    <div ng-controller="GabeCtrl">
+      <form name="gabeInfo">
+        <h1>Forming some form from forms</h1>
+        <p>Or type your own...</p>
+        <input
+          name="adjField"
+          type="text"
+          ng-model="data.gabeAdj"
+          ng-minlength="10"
+          ng-class="{'has-error': gabeInfo.adjField.$invalid}"/>
+        <input
+          name="moodField"
+          type="text"
+          ng-model="data.gabeMood"
+          ng-maxlength="10"
+          ng-class="{'has-error': gabeInfo.moodField.$invalid}"
+        />
+        <p>You said that Gabe is {{ data.gabeAdj }} and feels {{ data.gabeMood }}</p>
+        <button ng-click="submitTheInfo()">Tell the world!</button>
+      </form>
+      <pre>{{ gabeInfo | json }}</pre>
+    </div>
+  </body>
+</html>
