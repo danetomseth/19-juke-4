@@ -1,0 +1,24 @@
+<div class="well" ng-controller="PlaylistCtrl">
+  <form class="form-horizontal" name="addPlaylist">
+    <fieldset>
+      <legend>New Playlist</legend>
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Name</label>
+        <div class="col-xs-10">
+          <input ng-model="playlistName" name="inputText"  ng-maxlength="16" ng-minlength="1" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-10 col-xs-offset-2">
+          <button type="submit" ng-click="submitPlaylist(playlistName)" ng-disabled="addPlaylist.inputText.$invalid" class="btn btn-success">New Playlist</button>
+          <div ng-show="addPlaylist.inputText.$invalid" class="alert alert-warning">Your playlist must be between 1-16 characters</div>
+          <div ng-show="!addPlaylist.inputText.$viewValue">Please enter a playlist name</div>
+
+         <h3>{{addPlaylist}}</h3>
+      
+        </div>
+    
+      </div>
+    </fieldset>
+  </form>
+</div>

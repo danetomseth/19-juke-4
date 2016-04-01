@@ -15,6 +15,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
+  console.log("REQBODY:", req.body)
   mongoose.model('Playlist')
   .create(req.body)
   .then(function (playlist) {
